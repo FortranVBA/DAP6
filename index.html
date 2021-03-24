@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JustStreamIt</title>
+</head>
+
+<body>
+    <header class="main-head">
+        <nav>
+            <h1>JustStreamIt</h1>
+            <ul>
+                <li><a href="">Accueil</a></li>
+                <li><a href="">Catégorie</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <div class="best-movie">
+        <div class="best-movie-left">
+            <div class="movie-title" id="best-movie-title">Titre de la vidéo</div>
+            <div>
+                <div class="play-button">Play</div>
+            </div>
+        </div>
+        <div class="best-movie-right">
+            <img class="movie-icon" id="best-movie-img" src="" alt="" onclick="show_movie_details()">
+        </div>
+
+    </div>
+    <div class="movie-line">
+        <h1>Films les mieux notés</h1>
+        <div class="icons-line">
+            <div class="arrow-box">
+                <a class="arrow" href="/" onclick="arrow_left_best_movies(); return false;">&larr;</a>
+            </div>
+            <img class="movie-icon" id="best-rated-img-1" src="" alt="">
+            <img class="movie-icon" id="best-rated-img-2" src="" alt="">
+            <img class="movie-icon" id="best-rated-img-3" src="" alt="">
+            <img class="movie-icon" id="best-rated-img-4" src="" alt="">
+            <div class="arrow-box">
+                <a class="arrow" href="/" onclick="arrow_right_best_movies(); return false;">&rarr;</a>
+            </div>
+        </div>
+    </div>
+    <div class="movie-line">
+        <h1>Catégorie 1</h1>
+        <div class="icons-line">
+            <div class="arrow-box">
+                <a class="arrow" href="http://">&larr;</a>
+            </div>
+            <img class="movie-icon" id="category-1-img-1" src="" alt="">
+            <img class="movie-icon" id="category-1-img-2" src="" alt="">
+            <img class="movie-icon" id="category-1-img-3" src="" alt="">
+            <img class="movie-icon" id="category-1-img-4" src="" alt="">
+            <div class="arrow-box">
+                <a class="arrow" href="http://">&rarr;</a>
+            </div>
+        </div>
+    </div>
+    <div class="movie-line">
+        <h1>Catégorie 2</h1>
+        <div class="icons-line">
+            <div class="arrow-box">
+                <a class="arrow" href="http://">&larr;</a>
+            </div>
+            <img class="movie-icon" id="category-2-img-1" src="" alt="">
+            <img class="movie-icon" id="category-2-img-2" src="" alt="">
+            <img class="movie-icon" id="category-2-img-3" src="" alt="">
+            <img class="movie-icon" id="category-2-img-4" src="" alt="">
+            <div class="arrow-box">
+                <a class="arrow" href="http://">&rarr;</a>
+            </div>
+        </div>
+    </div>
+    <div class="movie-line">
+        <h1>Catégorie 3</h1>
+        <div class="icons-line">
+            <div class="arrow-box">
+                <a class="arrow" href="http://">&larr;</a>
+            </div>
+            <img class="movie-icon" id="category-3-img-1" src="" alt="">
+            <img class="movie-icon" id="category-3-img-2" src="" alt="">
+            <img class="movie-icon" id="category-3-img-3" src="" alt="">
+            <img class="movie-icon" id="category-3-img-4" src="" alt="">
+            <div class="arrow-box">
+                <a class="arrow" href="http://">&rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-bg">
+        <div class="modal">
+            <div class="movie-details">
+                <h1>Titre de la vidéo</h1>
+                <ul>
+                    <li>Genre :</li>
+                    <li>Date de sortie :</li>
+                    <li>Rated :</li>
+                    <li>Score Imdb :</li>
+                    <li>Réalisateur :</li>
+                    <li>Liste des acteurs :</li>
+                    <li>Durée :</li>
+                    <li>Pays d’origine :</li>
+                    <li>Résultat au Box Office :</li>
+                    <li>Résumé du film :</li>
+                </ul>
+                <span class="modal-close" onclick="hide_movie_details()">X</span>
+            </div>
+            <img class="movie-picture" src="img/sample.jpg" alt="">
+        </div>
+    </div>
+
+</body>
+
+<script src="main.js"></script>
+
+</html>
