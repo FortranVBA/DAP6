@@ -1,8 +1,8 @@
 "use strict";
 
 
-function set_movie_category(xhr, args) {
-    let movie_category = args.movie_category;
+function set_movie_category(xhr, kwargs) {
+    let movie_category = kwargs.movie_category;
 
     if (xhr.status != 200) { // analyze HTTP status of the response
         alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
@@ -21,10 +21,10 @@ function set_movie_category(xhr, args) {
         if (xhr.response.next != null && movies_count < 7) {
             //get_movies(xhr.response.next, movie_category);
 
-            let args = {
+            let kwargs = {
                 movie_category: movie_category
             };
-            get_url(xhr.response.next, set_movie_category, args);
+            get_url(xhr.response.next, set_movie_category, kwargs);
 
         }
         else {
@@ -33,9 +33,9 @@ function set_movie_category(xhr, args) {
     }
 }
 
-function set_movie_details(xhr, args) {
-    let movie = args.movie;
-    let movie_category = args.movie_category;
+function set_movie_details(xhr, kwargs) {
+    let movie = kwargs.movie;
+    let movie_category = kwargs.movie_category;
 
     if (xhr.status != 200) { // analyze HTTP status of the response
         alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
@@ -59,8 +59,8 @@ function set_movie_details(xhr, args) {
     }
 }
 
-function set_movie_summary(xhr, args) {
-    let top_movie = args.top_movie;
+function set_movie_summary(xhr, kwargs) {
+    let top_movie = kwargs.top_movie;
 
     if (xhr.status != 200) { // analyze HTTP status of the response
         alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
@@ -72,7 +72,7 @@ function set_movie_summary(xhr, args) {
     }
 }
 
-function get_url(url, function_onload, args) {
+function get_url(url, function_onload, kwargs) {
     // 1. Create a new XMLHttpRequest object
     let xhr = new XMLHttpRequest();
 
@@ -85,7 +85,7 @@ function get_url(url, function_onload, args) {
 
     // 4. This will be called after the response is received
     xhr.onload = function () {
-        function_onload(xhr, args);
+        function_onload(xhr, kwargs);
     };
 
     xhr.onerror = function () {
@@ -103,10 +103,10 @@ function TopMovie() {
 
     this.update = function (movie) {
         this.movie = movie;
-        let args = {
+        let kwargs = {
             top_movie: this
         };
-        get_url(this.movie.url, set_movie_summary, args);
+        get_url(this.movie.url, set_movie_summary, kwargs);
     };
 
     this.update_summary = function (sumup) {
@@ -128,10 +128,10 @@ function MovieCategory(url, id_html) {
     this.id_html = id_html;
     this.url = url;
 
-    let args = {
+    let kwargs = {
         movie_category: this
     };
-    get_url(this.url, set_movie_category, args);
+    get_url(this.url, set_movie_category, kwargs);
 
 
     if (this.id_html == "best-rated-img-") {
@@ -170,11 +170,11 @@ function MovieCategory(url, id_html) {
             movie = this.best_movies[(this.index + call_index) % 7];
         };
 
-        let args = {
+        let kwargs = {
             movie: movie,
             movie_category: this
         };
-        get_url(movie.url, set_movie_details, args);
+        get_url(movie.url, set_movie_details, kwargs);
     };
 
     this.refresh_details = function (movie) {
