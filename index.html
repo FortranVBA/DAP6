@@ -23,12 +23,13 @@
     <div class="best-movie">
         <div class="best-movie-left">
             <div class="movie-title" id="best-movie-title">Titre de la vidéo</div>
+            <div class="movie-sumup" id="best-movie-sumup">Résumé</div>
             <div>
                 <div class="play-button">Play</div>
             </div>
         </div>
         <div class="best-movie-right">
-            <img class="movie-icon" id="best-movie-img" src="" alt="" onclick="show_movie_details()">
+            <img class="movie-icon" id="best-movie-img" src="" alt="" onclick="all_categories.show_movie_details(-1)">
         </div>
 
     </div>
@@ -38,10 +39,10 @@
             <div class="arrow-box">
                 <a class="arrow" href="/" onclick="all_categories.arrow_left(); return false;">&larr;</a>
             </div>
-            <img class="movie-icon" id="best-rated-img-1" src="" alt="">
-            <img class="movie-icon" id="best-rated-img-2" src="" alt="">
-            <img class="movie-icon" id="best-rated-img-3" src="" alt="">
-            <img class="movie-icon" id="best-rated-img-4" src="" alt="">
+            <img class="movie-icon" id="best-rated-img-1" src="" alt="" onclick="all_categories.show_movie_details(0)">
+            <img class="movie-icon" id="best-rated-img-2" src="" alt="" onclick="all_categories.show_movie_details(1)">
+            <img class="movie-icon" id="best-rated-img-3" src="" alt="" onclick="all_categories.show_movie_details(2)">
+            <img class="movie-icon" id="best-rated-img-4" src="" alt="" onclick="all_categories.show_movie_details(3)">
             <div class="arrow-box">
                 <a class="arrow" href="/" onclick="all_categories.arrow_right(); return false;">&rarr;</a>
             </div>
@@ -51,29 +52,29 @@
         <h1>Mystery</h1>
         <div class="icons-line">
             <div class="arrow-box">
-                <a class="arrow" href="http://">&larr;</a>
+                <a class="arrow" href="/" onclick="categories_1.arrow_left(); return false;">&larr;</a>
             </div>
-            <img class="movie-icon" id="category-1-img-1" src="" alt="">
-            <img class="movie-icon" id="category-1-img-2" src="" alt="">
-            <img class="movie-icon" id="category-1-img-3" src="" alt="">
-            <img class="movie-icon" id="category-1-img-4" src="" alt="">
+            <img class="movie-icon" id="category-1-img-1" src="" alt="" onclick="categories_1.show_movie_details(0)">
+            <img class="movie-icon" id="category-1-img-2" src="" alt="" onclick="categories_1.show_movie_details(1)">
+            <img class="movie-icon" id="category-1-img-3" src="" alt="" onclick="categories_1.show_movie_details(2)">
+            <img class="movie-icon" id="category-1-img-4" src="" alt="" onclick="categories_1.show_movie_details(3)">
             <div class="arrow-box">
-                <a class="arrow" href="http://">&rarr;</a>
+                <a class="arrow" href="/" onclick="categories_1.arrow_right(); return false;">&rarr;</a>
             </div>
         </div>
     </div>
     <div class="movie-line">
-        <h1>Documentary</h1>
+        <h1>Drama</h1>
         <div class="icons-line">
             <div class="arrow-box">
-                <a class="arrow" href="http://">&larr;</a>
+                <a class="arrow" href="/" onclick="categories_2.arrow_left(); return false;">&larr;</a>
             </div>
-            <img class="movie-icon" id="category-2-img-1" src="" alt="">
-            <img class="movie-icon" id="category-2-img-2" src="" alt="">
-            <img class="movie-icon" id="category-2-img-3" src="" alt="">
-            <img class="movie-icon" id="category-2-img-4" src="" alt="">
+            <img class="movie-icon" id="category-2-img-1" src="" alt="" onclick="categories_2.show_movie_details(0)">
+            <img class="movie-icon" id="category-2-img-2" src="" alt="" onclick="categories_2.show_movie_details(1)">
+            <img class="movie-icon" id="category-2-img-3" src="" alt="" onclick="categories_2.show_movie_details(2)">
+            <img class="movie-icon" id="category-2-img-4" src="" alt="" onclick="categories_2.show_movie_details(3)">
             <div class="arrow-box">
-                <a class="arrow" href="http://">&rarr;</a>
+                <a class="arrow" href="/" onclick="categories_2.arrow_right(); return false;">&rarr;</a>
             </div>
         </div>
     </div>
@@ -81,14 +82,14 @@
         <h1>Comedy</h1>
         <div class="icons-line">
             <div class="arrow-box">
-                <a class="arrow" href="http://">&larr;</a>
+                <a class="arrow" href="/" onclick="categories_3.arrow_left(); return false;">&larr;</a>
             </div>
-            <img class="movie-icon" id="category-3-img-1" src="" alt="">
-            <img class="movie-icon" id="category-3-img-2" src="" alt="">
-            <img class="movie-icon" id="category-3-img-3" src="" alt="">
-            <img class="movie-icon" id="category-3-img-4" src="" alt="">
+            <img class="movie-icon" id="category-3-img-1" src="" alt="" onclick="categories_3.show_movie_details(0)">
+            <img class="movie-icon" id="category-3-img-2" src="" alt="" onclick="categories_3.show_movie_details(1)">
+            <img class="movie-icon" id="category-3-img-3" src="" alt="" onclick="categories_3.show_movie_details(2)">
+            <img class="movie-icon" id="category-3-img-4" src="" alt="" onclick="categories_3.show_movie_details(3)">
             <div class="arrow-box">
-                <a class="arrow" href="http://">&rarr;</a>
+                <a class="arrow" href="/" onclick="categories_3.arrow_right(); return false;">&rarr;</a>
             </div>
         </div>
     </div>
@@ -96,22 +97,22 @@
     <div class="modal-bg">
         <div class="modal">
             <div class="movie-details">
-                <h1>Titre de la vidéo</h1>
+                <h1 id="details_title">Titre de la vidéo</h1>
                 <ul>
-                    <li>Genre :</li>
-                    <li>Date de sortie :</li>
-                    <li>Rated :</li>
-                    <li>Score Imdb :</li>
-                    <li>Réalisateur :</li>
-                    <li>Liste des acteurs :</li>
-                    <li>Durée :</li>
-                    <li>Pays d’origine :</li>
-                    <li>Résultat au Box Office :</li>
-                    <li>Résumé du film :</li>
+                    <li id="details_genre">Genre :</li>
+                    <li id="details_date">Date de sortie :</li>
+                    <li id="details_rated">Rated :</li>
+                    <li id="details_imdb">Score Imdb :</li>
+                    <li id="details_directors">Réalisateur :</li>
+                    <li id="details_actors">Liste des acteurs :</li>
+                    <li id="details_duration">Durée :</li>
+                    <li id="details_country">Pays d’origine :</li>
+                    <li id="details_results">Résultat au Box Office :</li>
+                    <li id="details_sumup">Résumé du film :</li>
                 </ul>
                 <span class="modal-close" onclick="hide_movie_details()">X</span>
             </div>
-            <img class="movie-picture" src="img/sample.jpg" alt="">
+            <img class="movie-picture" id="details_picture" src="" alt="">
         </div>
     </div>
 
