@@ -129,7 +129,10 @@
     <div class="modal-bg">
         <div class="modal">
             <div class="movie-details">
-                <h1 id="details_title">Titre de la vidéo</h1>
+                <div class="details-head">
+                    <h1 id="details_title">Titre de la vidéo</h1>
+                    <span class="modal-close" onclick="hide_movie_details()">X</span>
+                </div>
                 <ul>
                     <li id="details_genre">Genre :</li>
                     <li id="details_date">Date de sortie :</li>
@@ -142,9 +145,10 @@
                     <li id="details_results">Résultat au Box Office :</li>
                     <li id="details_sumup">Résumé du film :</li>
                 </ul>
-                <span class="modal-close" onclick="hide_movie_details()">X</span>
             </div>
-            <img class="movie-picture" id="details_picture" src="" alt="">
+            <div class="movie-picture-box">
+                <img class="movie-picture" id="details_picture" src="" alt="">
+            </div>
         </div>
     </div>
 

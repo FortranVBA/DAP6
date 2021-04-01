@@ -159,10 +159,10 @@ export function MovieCategory(url, id_html) {
         document.getElementById("details_date").innerHTML = "Date de sortie : " + movie?.date;
         document.getElementById("details_rated").innerHTML = "Rated : " + movie?.rated;
         document.getElementById("details_imdb").innerHTML = "Score Imdb : " + movie?.imdb_score;
-        document.getElementById("details_directors").innerHTML = "Réalisateur : " + movie?.directors;
-        document.getElementById("details_actors").innerHTML = "Liste des acteurs : " + movie?.actors;
+        document.getElementById("details_directors").innerHTML = "Réalisateur : " + movie?.directors.join(', ');
+        document.getElementById("details_actors").innerHTML = "Liste des acteurs : " + movie?.actors.join(', ');
         document.getElementById("details_duration").innerHTML = "Durée : " + movie?.duration;
-        document.getElementById("details_country").innerHTML = "Pays d’origine : " + movie?.country;
+        document.getElementById("details_country").innerHTML = "Pays d’origine : " + movie?.country.join(', ');
         document.getElementById("details_results").innerHTML = "Résultat au Box Office : " + movie?.results;
         document.getElementById("details_sumup").innerHTML = "Résumé du film : " + movie?.sumup;
     }
