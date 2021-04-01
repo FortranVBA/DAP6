@@ -1,5 +1,6 @@
 "use strict";
 
+import { get_url } from './url_getter.js';
 
 function set_movie_category(xhr, kwargs) {
     let movie_category = kwargs.movie_category;
@@ -72,32 +73,6 @@ function set_movie_summary(xhr, kwargs) {
     }
 }
 
-function get_url(url, function_onload, kwargs) {
-    // 1. Create a new XMLHttpRequest object
-    let xhr = new XMLHttpRequest();
-
-    // 2. Configure it: GET-request for the URL /article/.../load
-    xhr.open('GET', url);
-    xhr.responseType = 'json';
-
-    // 3. Send the request over the network
-    xhr.send();
-
-    // 4. This will be called after the response is received
-    xhr.onload = function () {
-        function_onload(xhr, kwargs);
-    };
-
-    xhr.onerror = function () {
-        alert("Request failed");
-    };
-}
-
-function hide_movie_details() {
-    let modal_bg = document.querySelector(".modal-bg");
-    modal_bg.classList.remove("visible-modal-bg");
-};
-
 function TopMovie() {
     this.movie = null;
 
@@ -121,7 +96,7 @@ function TopMovie() {
     };
 }
 
-function MovieCategory(url, id_html) {
+export function MovieCategory(url, id_html) {
 
     this.best_movies = [];
     this.index = 0;
@@ -194,18 +169,7 @@ function MovieCategory(url, id_html) {
 
 }
 
-let url = '';
-
-url = 'http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains=';
-let all_categories = new MovieCategory(url, "best-rated-img-");
-
-url = 'http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Mystery&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains='
-let categories_1 = new MovieCategory(url, "category-1-img-");
-
-url = 'http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Drama&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains='
-let categories_2 = new MovieCategory(url, "category-2-img-");
-
-url = 'http://localhost:8000/api/v1/titles/?year=&min_year=&max_year=&imdb_score=&imdb_score_min=&imdb_score_max=&title=&title_contains=&genre=Comedy&genre_contains=&sort_by=-imdb_score&director=&director_contains=&writer=&writer_contains=&actor=&actor_contains=&country=&country_contains=&lang=&lang_contains=&company=&company_contains=&rating=&rating_contains='
-let categories_3 = new MovieCategory(url, "category-3-img-");
-
-
+MovieCategory.hide_movie_details = function () {
+    let modal_bg = document.querySelector(".modal-bg");
+    modal_bg.classList.remove("visible-modal-bg");
+};

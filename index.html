@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>JustStreamIt</title>
 </head>
 
@@ -24,12 +24,12 @@
         <div class="best-movie-left">
             <div class="movie-title" id="best-movie-title">Titre de la vidéo</div>
             <div class="movie-sumup" id="best-movie-sumup">Résumé</div>
-            <div>
+            <div class="button-around">
                 <div class="play-button">Play</div>
             </div>
         </div>
         <div class="best-movie-right">
-            <img class="movie-icon" id="best-movie-img" src="" alt="" onclick="all_categories.show_movie_details(-1)">
+            <img class="movie-icon-top" id="best-movie-img" src="" alt="" onclick="show_top_movie()">
         </div>
 
     </div>
@@ -37,14 +37,22 @@
         <h1>Films les mieux notés</h1>
         <div class="icons-line">
             <div class="arrow-box">
-                <a class="arrow" href="/" onclick="all_categories.arrow_left(); return false;">&larr;</a>
+                <a class="arrow" href="/" onclick="arrow_left('all_categories'); return false;">&larr;</a>
             </div>
-            <img class="movie-icon" id="best-rated-img-1" src="" alt="" onclick="all_categories.show_movie_details(0)">
-            <img class="movie-icon" id="best-rated-img-2" src="" alt="" onclick="all_categories.show_movie_details(1)">
-            <img class="movie-icon" id="best-rated-img-3" src="" alt="" onclick="all_categories.show_movie_details(2)">
-            <img class="movie-icon" id="best-rated-img-4" src="" alt="" onclick="all_categories.show_movie_details(3)">
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="best-rated-img-1" src="" alt="" onclick="show_details('all_categories',0)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="best-rated-img-2" src="" alt="" onclick="show_details('all_categories',1)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="best-rated-img-3" src="" alt="" onclick="show_details('all_categories',2)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="best-rated-img-4" src="" alt="" onclick="show_details('all_categories',3)">
+            </div>
             <div class="arrow-box">
-                <a class="arrow" href="/" onclick="all_categories.arrow_right(); return false;">&rarr;</a>
+                <a class="arrow" href="/" onclick="arrow_right('all_categories'); return false;">&rarr;</a>
             </div>
         </div>
     </div>
@@ -52,14 +60,22 @@
         <h1>Mystery</h1>
         <div class="icons-line">
             <div class="arrow-box">
-                <a class="arrow" href="/" onclick="categories_1.arrow_left(); return false;">&larr;</a>
+                <a class="arrow" href="/" onclick="arrow_left('category_1'); return false;">&larr;</a>
             </div>
-            <img class="movie-icon" id="category-1-img-1" src="" alt="" onclick="categories_1.show_movie_details(0)">
-            <img class="movie-icon" id="category-1-img-2" src="" alt="" onclick="categories_1.show_movie_details(1)">
-            <img class="movie-icon" id="category-1-img-3" src="" alt="" onclick="categories_1.show_movie_details(2)">
-            <img class="movie-icon" id="category-1-img-4" src="" alt="" onclick="categories_1.show_movie_details(3)">
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-1-img-1" src="" alt="" onclick="show_details('category_1',0)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-1-img-2" src="" alt="" onclick="show_details('category_1',1)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-1-img-3" src="" alt="" onclick="show_details('category_1',2)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-1-img-4" src="" alt="" onclick="show_details('category_1',3)">
+            </div>
             <div class="arrow-box">
-                <a class="arrow" href="/" onclick="categories_1.arrow_right(); return false;">&rarr;</a>
+                <a class="arrow" href="/" onclick="arrow_right('category_1'); return false;">&rarr;</a>
             </div>
         </div>
     </div>
@@ -67,14 +83,22 @@
         <h1>Drama</h1>
         <div class="icons-line">
             <div class="arrow-box">
-                <a class="arrow" href="/" onclick="categories_2.arrow_left(); return false;">&larr;</a>
+                <a class="arrow" href="/" onclick="arrow_left('category_2'); return false;">&larr;</a>
             </div>
-            <img class="movie-icon" id="category-2-img-1" src="" alt="" onclick="categories_2.show_movie_details(0)">
-            <img class="movie-icon" id="category-2-img-2" src="" alt="" onclick="categories_2.show_movie_details(1)">
-            <img class="movie-icon" id="category-2-img-3" src="" alt="" onclick="categories_2.show_movie_details(2)">
-            <img class="movie-icon" id="category-2-img-4" src="" alt="" onclick="categories_2.show_movie_details(3)">
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-2-img-1" src="" alt="" onclick="show_details('category_2',0)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-2-img-2" src="" alt="" onclick="show_details('category_2',1)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-2-img-3" src="" alt="" onclick="show_details('category_2',2)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-2-img-4" src="" alt="" onclick="show_details('category_2',3)">
+            </div>
             <div class="arrow-box">
-                <a class="arrow" href="/" onclick="categories_2.arrow_right(); return false;">&rarr;</a>
+                <a class="arrow" href="/" onclick="arrow_right('category_2'); return false;">&rarr;</a>
             </div>
         </div>
     </div>
@@ -82,14 +106,22 @@
         <h1>Comedy</h1>
         <div class="icons-line">
             <div class="arrow-box">
-                <a class="arrow" href="/" onclick="categories_3.arrow_left(); return false;">&larr;</a>
+                <a class="arrow" href="/" onclick="arrow_left('category_3'); return false;">&larr;</a>
             </div>
-            <img class="movie-icon" id="category-3-img-1" src="" alt="" onclick="categories_3.show_movie_details(0)">
-            <img class="movie-icon" id="category-3-img-2" src="" alt="" onclick="categories_3.show_movie_details(1)">
-            <img class="movie-icon" id="category-3-img-3" src="" alt="" onclick="categories_3.show_movie_details(2)">
-            <img class="movie-icon" id="category-3-img-4" src="" alt="" onclick="categories_3.show_movie_details(3)">
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-3-img-1" src="" alt="" onclick="show_details('category_3',0)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-3-img-2" src="" alt="" onclick="show_details('category_3',1)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-3-img-3" src="" alt="" onclick="show_details('category_3',2)">
+            </div>
+            <div class="movie-icon-box">
+                <img class="movie-icon" id="category-3-img-4" src="" alt="" onclick="show_details('category_3',3)">
+            </div>
             <div class="arrow-box">
-                <a class="arrow" href="/" onclick="categories_3.arrow_right(); return false;">&rarr;</a>
+                <a class="arrow" href="/" onclick="arrow_right('category_3'); return false;">&rarr;</a>
             </div>
         </div>
     </div>
@@ -118,6 +150,6 @@
 
 </body>
 
-<script src="main.js"></script>
+<script type="module" src="./js/main.js"></script>
 
 </html>
