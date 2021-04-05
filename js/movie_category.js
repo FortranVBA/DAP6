@@ -2,15 +2,17 @@
 
 import { get_url } from './url_getter.js';
 
-function set_movie_category(xhr, kwargs) {
+function set_movie_category(response, kwargs) {
     let movie_category = kwargs.movie_category;
 
-    if (xhr.status != 200) { // analyze HTTP status of the response
-        alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+    if (response.status != 200) { // analyze HTTP status of the response
+        alert(`Error ${response.status}: ${response.statusText}`); // e.g. 404: Not Found
     } else { // show the result
         let all_movies;
 
-        all_movies = xhr.response.results;
+        let request = JSON.parse(response.request.response);
+
+        all_movies = request.results;
 
         //best_movies_all_categories.push.apply(all_movies);
         for (let i = 0; i < Object.keys(all_movies).length; i++) {
@@ -19,13 +21,12 @@ function set_movie_category(xhr, kwargs) {
 
         // Si next page, la charger
         let movies_count = Object.keys(movie_category.best_movies).length;
-        if (xhr.response.next != null && movies_count < 7) {
-            //get_movies(xhr.response.next, movie_category);
+        if (request.next != null && movies_count < 7) {
 
             let kwargs = {
                 movie_category: movie_category
             };
-            get_url(xhr.response.next, set_movie_category, kwargs);
+            get_url(request.next, set_movie_category, kwargs);
 
         }
         else {
@@ -34,16 +35,14 @@ function set_movie_category(xhr, kwargs) {
     }
 }
 
-function set_movie_details(xhr, kwargs) {
+function set_movie_details(response, kwargs) {
     let movie = kwargs.movie;
     let movie_category = kwargs.movie_category;
 
-    if (xhr.status != 200) { // analyze HTTP status of the response
-        alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+    if (response.status != 200) { // analyze HTTP status of the response
+        alert(`Error ${response.status}: ${response.statusText}`); // e.g. 404: Not Found
     } else { // show the result
-        let movie_details;
-
-        movie_details = xhr.response;
+        let movie_details = JSON.parse(response.request.response);
 
         movie.rated = movie_details?.rated;
         movie.date = movie_details?.date_published;
@@ -60,15 +59,14 @@ function set_movie_details(xhr, kwargs) {
     }
 }
 
-function set_movie_summary(xhr, kwargs) {
+function set_movie_summary(response, kwargs) {
     let top_movie = kwargs.top_movie;
 
-    if (xhr.status != 200) { // analyze HTTP status of the response
-        alert(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+    if (response.status != 200) { // analyze HTTP status of the response
+        alert(`Error ${response.status}: ${response.statusText}`); // e.g. 404: Not Found
     } else { // show the result
-        let movie_details;
+        let movie_details = JSON.parse(response.request.response);
 
-        movie_details = xhr.response;
         top_movie.update_summary(movie_details?.long_description);
     }
 }
