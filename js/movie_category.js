@@ -71,27 +71,29 @@ function set_movie_summary(response, kwargs) {
     }
 }
 
-function TopMovie() {
-    this.movie = null;
+class TopMovie {
+    constructor() {
+        this.movie = null;
+    }
 
-    this.update = function (movie) {
+    update(movie) {
         this.movie = movie;
         let kwargs = {
             top_movie: this
         };
         get_url(this.movie.url, set_movie_summary, kwargs);
-    };
+    }
 
-    this.update_summary = function (sumup) {
+    update_summary(sumup) {
         this.movie.sumup = sumup
         this.refresh_html();
-    };
+    }
 
-    this.refresh_html = function () {
+    refresh_html() {
         document.getElementById("best-movie-img").src = this.movie.image_url;
         document.getElementById("best-movie-title").innerHTML = this.movie.title;
         document.getElementById("best-movie-sumup").innerHTML = this.movie.sumup;
-    };
+    }
 }
 
 export class MovieCarousel {
