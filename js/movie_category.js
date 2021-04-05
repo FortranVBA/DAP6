@@ -94,24 +94,25 @@ function TopMovie() {
     };
 }
 
-export function MovieCategory(url, id_html) {
+export class MovieCarousel {
+    constructor(url, id_html) {
+        this.best_movies = [];
+        this.index = 0;
+        this.id_html = id_html;
+        this.url = url;
 
-    this.best_movies = [];
-    this.index = 0;
-    this.id_html = id_html;
-    this.url = url;
-
-    let kwargs = {
-        movie_category: this
-    };
-    get_url(this.url, set_movie_category, kwargs);
+        let kwargs = {
+            movie_category: this
+        };
+        get_url(this.url, set_movie_category, kwargs);
 
 
-    if (this.id_html == "best-rated-img-") {
-        this.top_movie = new TopMovie();
-    };
+        if (this.id_html == "best-rated-img-") {
+            this.top_movie = new TopMovie();
+        };
+    }
 
-    this.refresh_images = function () {
+    refresh_images() {
         if (this.id_html == "best-rated-img-") {
             this.top_movie.update(this.best_movies[0]);
         };
@@ -119,21 +120,21 @@ export function MovieCategory(url, id_html) {
         document.getElementById(this.id_html + "2").src = this.best_movies[(this.index + 1) % 7].image_url;
         document.getElementById(this.id_html + "3").src = this.best_movies[(this.index + 2) % 7].image_url;
         document.getElementById(this.id_html + "4").src = this.best_movies[(this.index + 3) % 7].image_url;
-    };
+    }
 
-    this.arrow_left = function () {
+    arrow_left() {
         this.index = this.index - 1;
         if (this.index < 0) { this.index = 6; }
         this.refresh_images();
-    };
+    }
 
-    this.arrow_right = function () {
+    arrow_right() {
         this.index = this.index + 1;
         if (this.index > 7) { this.index = 0; }
         this.refresh_images();
-    };
+    }
 
-    this.show_movie_details = function (call_index) {
+    show_movie_details(call_index) {
         let modal_bg = document.querySelector(".modal-bg");
         let movie;
         modal_bg.classList.add("visible-modal-bg");
@@ -148,9 +149,9 @@ export function MovieCategory(url, id_html) {
             movie_category: this
         };
         get_url(movie.url, set_movie_details, kwargs);
-    };
+    }
 
-    this.refresh_details = function (movie) {
+    refresh_details(movie) {
         document.getElementById("details_picture").src = movie?.image_url;
         document.getElementById("details_title").innerHTML = movie?.title;
         document.getElementById("details_genre").innerHTML = "Genre : " + movie?.genres;
@@ -165,9 +166,9 @@ export function MovieCategory(url, id_html) {
         document.getElementById("details_sumup").innerHTML = "Résumé du film : " + movie?.sumup;
     }
 
-}
+    static hide_movie_details() {
+        let modal_bg = document.querySelector(".modal-bg");
+        modal_bg.classList.remove("visible-modal-bg");
+    }
 
-MovieCategory.hide_movie_details = function () {
-    let modal_bg = document.querySelector(".modal-bg");
-    modal_bg.classList.remove("visible-modal-bg");
-};
+}
