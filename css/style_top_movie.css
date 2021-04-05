@@ -1,0 +1,73 @@
+
+
+
+/* Best movie*/
+.best-movie{
+    border: solid 0.5rem black;
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+}
+
+.movie-title{
+    font-size: 4rem;
+    text-align: center;
+    font-weight: bold;
+    padding: 2rem;
+}
+
+.button-around{
+    padding: 2rem;
+}
+
+.play-button{
+    text-align: center;
+
+    background-color:#d12a2a;
+	border-radius:4rem;
+	border:1px solid #fa1717;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:3.5rem;
+	padding:1rem 4rem;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+}
+
+.play-button:hover {
+	background-color:#ed1717;
+}
+.play-button:active {
+	position:relative;
+	top:1px;
+}
+
+.best-movie-left{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+
+.movie-sumup{
+    font-size: 2rem;
+    text-align: justify;
+    padding: 2rem;
+}
+
+.best-movie-right{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.movie-icon-top{
+    border: solid 0.5rem black;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem;
+    cursor: pointer;
+}

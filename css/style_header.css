@@ -1,0 +1,29 @@
+/* HEADER */
+.main-head{
+    background: #5e7669;
+    background-size: 100vw 20vh;
+    color: #ffffff;
+    align-items: center;
+    padding: 2rem;
+}
+
+nav{
+    min-height: 3vh;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+    padding: 1rem;
+}
+
+nav ul{
+    display: flex;
+    flex: 1 1 40rem;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+
+#logo {
+    flex: 2 1 40rem;
+}
