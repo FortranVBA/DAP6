@@ -19,7 +19,7 @@
   /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
   @media screen and (max-width: 800px) {
     html {
-      font-size: 1.8vw;
+      font-size: 1.6vw;
     }
 
     .movie-picture-box{

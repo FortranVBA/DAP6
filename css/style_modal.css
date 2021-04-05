@@ -19,18 +19,32 @@
     opacity: 1; 
 }
 
-.modal{
-    background-color: white;
-    padding-top: 1vh;
-    padding-right: 1vw;
-    padding-left: 1vw;
-    display: flex;
-    justify-content: space-between;
+@media screen and (min-width: 801px) {
+    .modal{
+        background-color: white;
+        margin-top: 1vh;
+        margin-right: 10vw;
+        margin-left: 10vw;
+        max-height: 100vh;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+@media screen and (max-width: 800px) {
+    .modal{
+        background-color: white;
+        margin-top: 1vh;
+        margin-right: 1vw;
+        margin-left: 1vw;
+        max-height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 }
 
 .movie-details{
     position: relative;
-    width: 100%;
     padding: 1rem;
     flex: 1;
     display: flex;
@@ -61,26 +75,18 @@
 
 @media screen and (min-width: 801px) {
     .movie-picture-box{
-        display: flex;
-        justify-content: space-around;
         flex: 1;
+        text-align: right;
     }
-
 }
-  
-  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
-  @media screen and (max-width: 800px) {
-
+@media screen and (max-width: 800px) {
     .movie-picture-box{
-        display: flex;
-        justify-content: space-around;
-        flex: 0;
+        flex: 0.4;
+        text-align: right;
     }
-    
 }
 
 .movie-picture{
-    display: flex;
-    max-width: 100%;
+    width: 90%;
     height: auto;
 }
