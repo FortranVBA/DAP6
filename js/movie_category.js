@@ -1,8 +1,8 @@
 "use strict";
 
-import { get_url } from './url_getter.js';
+import { getUrl } from './url_getter.js';
 
-function set_movie_category(response, kwargs) {
+function setMovieCategory(response, kwargs) {
     let movie_category = kwargs.movie_category;
 
     if (response.status != 200) { // analyze HTTP status of the response
@@ -26,7 +26,7 @@ function set_movie_category(response, kwargs) {
             let kwargs = {
                 movie_category: movie_category
             };
-            get_url(request.next, set_movie_category, kwargs);
+            getUrl(request.next, setMovieCategory, kwargs);
 
         }
         else {
@@ -35,7 +35,7 @@ function set_movie_category(response, kwargs) {
     }
 }
 
-function set_movie_details(response, kwargs) {
+function setMovieDetails(response, kwargs) {
     let movie = kwargs.movie;
     let movie_category = kwargs.movie_category;
 
@@ -59,7 +59,7 @@ function set_movie_details(response, kwargs) {
     }
 }
 
-function set_movie_summary(response, kwargs) {
+function setMovieSummary(response, kwargs) {
     let top_movie = kwargs.top_movie;
 
     if (response.status != 200) { // analyze HTTP status of the response
@@ -81,7 +81,7 @@ class TopMovie {
         let kwargs = {
             top_movie: this
         };
-        get_url(this.movie.url, set_movie_summary, kwargs);
+        getUrl(this.movie.url, setMovieSummary, kwargs);
     }
 
     update_summary(sumup) {
@@ -90,7 +90,7 @@ class TopMovie {
     }
 
     refresh_html() {
-        document.getElementById("best-movie-img").src = this.movie.image_url;
+        document.getElementById("best_movie_img").src = this.movie.image_url;
         document.getElementById("best-movie-title").innerHTML = this.movie.title;
         document.getElementById("best-movie-sumup").innerHTML = this.movie.sumup;
     }
@@ -106,16 +106,16 @@ export class MovieCarousel {
         let kwargs = {
             movie_category: this
         };
-        get_url(this.url, set_movie_category, kwargs);
+        getUrl(this.url, setMovieCategory, kwargs);
 
 
-        if (this.id_html == "best-rated-img-") {
+        if (this.id_html == "best_rated_img_") {
             this.top_movie = new TopMovie();
         };
     }
 
     refresh_images() {
-        if (this.id_html == "best-rated-img-") {
+        if (this.id_html == "best_rated_img_") {
             this.top_movie.update(this.best_movies[0]);
         };
         document.getElementById(this.id_html + "1").src = this.best_movies[(this.index) % 7].image_url;
@@ -150,7 +150,7 @@ export class MovieCarousel {
             movie: movie,
             movie_category: this
         };
-        get_url(movie.url, set_movie_details, kwargs);
+        getUrl(movie.url, setMovieDetails, kwargs);
     }
 
     refresh_details(movie) {
