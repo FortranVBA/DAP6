@@ -10,10 +10,6 @@
     html {
       font-size: 62.5%;
     }
-    .movie-picture-box{
-        flex: 1;
-    }
-
 }
   
   /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
@@ -21,11 +17,6 @@
     html {
       font-size: 1.6vw;
     }
-
-    .movie-picture-box{
-        flex: 0;
-    }
-    
   }
 
 h1{
